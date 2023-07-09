@@ -115,7 +115,14 @@ public:
 
                 if (input > 7 || input < 1)
                 {
-                    std::cout << "\nPlease input a valid digit [1-7]. " << std::endl;
+                    std::cout << "\nPlease input a valid digit [1-7]" << std::endl;
+
+                    // check for failure in case bad input is given like string instead of int
+                    if (std::cin.fail())
+                    {
+                        std::cin.clear();
+                        std::cin.ignore(512, '\n');
+                    }
                     continue;
                 }
 
